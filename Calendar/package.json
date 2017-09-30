@@ -1,0 +1,13 @@
+{
+  "name": "Calendar",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "author": "stone",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1"
+  }
+}
