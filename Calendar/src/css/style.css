@@ -1,0 +1,33 @@
+#contain {
+    display: flex;
+    flex-flow: column nowrap; 
+    align-items:center;
+    align-content: center;
+    justify-content: center; 
+}
+nav{
+    background-color: #ccc;
+    flex: 0 1 auto;
+}
+article{
+    flex: 0 1 auto;
+    background-color: #f9f2f4;
+    color:#c7254e;
+}
+.caldendar-table{
+    border-collapse:collapse;
+}
+.resetToday{
+    background-color: transparent;
+    border: 3px solid #C56080;
+    color: #c7254e;
+    border-radius: 5px;
+}
+table, td, th
+{
+    border:1px solid #ddd;
+}
+td, th{
+    width: 40px;
+    height: 20px;
+}

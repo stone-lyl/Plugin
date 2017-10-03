@@ -1,13 +1,15 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var uglify = require('gulp-uglify');
-var watchPath = require('gulp-watch-path');
-var combiner = require('stream-combiner2');
-var minifycss = require('gulp-minify-css');
-var imagemin = require('gulp-imagemin');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const uglify = require('gulp-uglify');
+const watchPath = require('gulp-watch-path');
+const combiner = require('stream-combiner2');
+const minifycss = require('gulp-minify-css');
+const imagemin = require('gulp-imagemin');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer')
 
-var handleError = function (error) {
-    var colors = gutil.colors;
+const handleError = function (error) {
+    const colors = gutil.colors;
     console.log('\n');
     gutil.log(colors.red('Error!'))
     gutil.log('fileName:' + colors.red(error.fileName))
@@ -41,19 +43,13 @@ gulp.task('watchjs', function () {
     })
 })
 
-gulp.task('watchsass', function () {
-    gulp.watch('src/sass/*.scss', function (event) {
-        var paths = watchPath(event, 'src/sass/', 'dist/css')
+gulp.task('watchcss', function () {
+    gulp.watch('src/css/*.css', function (event) {
+        const paths = watchPath(event, 'src/css/', 'dist/css/')
         gutil.log(gutil.colors.green(event.type)+ ' ' +paths.srcPath)
         gutil.log('Dist' + paths.distPath)
-
-        sass(paths.srcPath)
-            .on('error', function (error) {
-                console.error('Error', error.message);
-            })
-            .pipe(autoprefixer({
-                browsers: 'last 2 versions'
-            }))
+        gulp.src(paths.srcPath)
+            .pipe(autoprefixer('last 2 versions', 'safari 5','ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
             .pipe(minifycss())
             .pipe(gulp.dest(paths.distDir))
 
@@ -74,4 +70,4 @@ gulp.task('watchimage', function () {
             .pipe(gulp.dest(paths.distDir))
     })
 })
-gulp.task('default', ['watchjs', 'watchsass', 'watchimage'])
+gulp.task('default', ['watchcss','watchjs', 'watchimage'])
