@@ -33,91 +33,52 @@
             <div>
                 <p>calendar</p>
                 <select name="year" id="year">
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
+                    <option value="2017" >2017</option>
                 </select>
-                <label for="month">年</label>    
+                <label for="month">年</label>
                 <select name="month" id="month">
-                    <option value="2017">10</option>
-                    <option value="2016">11</option>
-                    <option value="2015">12</option>
+                    <option value="10" >10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
                 </select>
-                <label for="year">月</label> 
-                
+                <label for="month">月</label>
+
                 <button class="resetToday">回到今天</button>
             </div>
 
             <table class="caldendar-table">
-                <tr>
+                <thead>
                     <th>周一</th>
                     <th>周二</th>
                     <th>周三</th>
                     <th>周四</th>
                     <th>周五</th>
                     <th>周六</th>
-                    <th>周七</th>
+                    <th>周日</th>
+                </thead>
+                <tr id="1">
+                    
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
+                <tr id="2">
                 </tr>
-                <tr>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>19</td>
+                <tr id="3">                    
                 </tr>
-                <tr>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
+                <tr id="4">
+                    
                 </tr>
-                <tr>
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-                    </tr>
-                    <tr>
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <tr id="5">
+                    
+                </tr>
+                <tr id="6">
+                    
+                </tr>
             </table>
         </article>
         <section> info </section>
         <footer> do somethings </footer>
     </div>
-    <script src="./index.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
