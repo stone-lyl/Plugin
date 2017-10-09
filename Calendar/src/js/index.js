@@ -1,37 +1,41 @@
 $(function () {
     let selectYear = $("#year").val();
-    let selectMonth = $("#month").val(); 
+    let selectMonth = $("#month").val();
     console.log(selectMonth, selectYear);
+
+    //生成select表单
     let option;
-    for(let i = 1997 ; i <= 2037; i++){
-        console.log(i);
+    for (let i = 1997; i <= 2037; i++) {
         option = document.createElement("option");
         option.innerText = i;
         option.value = i;
         $("#year").append(option);
     }
-  
 
-    $(document).on("change","#month, #year", function (event) {
+    // 判断改变选择的对象是年还是月
+    $(document).on("change", "#month, #year", function (event) {
         const value = this.value;
-        if(value < 13 )
-        selectMonth = value;
+        if (value < 13)
+            selectMonth = value;
         else selectYear = value;
         changeCalendar(selectYear, selectMonth)
     })
 
+    // 生成对应的日历
     function changeCalendar(selectYear, selectMonth) {
         console.log('entry');
         const dayInMon = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let day, month, year, monthLength, date = new Date();
+
         day = date.getDate();
-        month = (isNaN(selectMonth) || selectMonth === null) ? date.getMonth() : (selectMonth -1);
-        year = (isNaN(selectYear) || selectYear ===null ) ? date.getFullYear() : selectYear;
-        date = new Date(year, month, day);        
-        let firstDay = new Date(year, month, 1);
+        month = (isNaN(selectMonth) || selectMonth === null) ? date.getMonth() : (selectMonth - 1);
+        year = (isNaN(selectYear) || selectYear === null) ? date.getFullYear() : selectYear;
+        date = new Date(year, month, day);
+
+        let firstDay = new Date(year, month, 1);        //获取当月的第一天
         let weekDay = firstDay.getDay();
-        console.log(date, day,'month', month, 'year', year, firstDay, weekDay);
-    
+        console.log(date, day, 'month', month, 'year', year, firstDay, weekDay);
+
         // 判断是否为闰年，计算二月的天数
         let judgeLength = (month) => {
             let monthLength = dayInMon[month];
@@ -43,11 +47,12 @@ $(function () {
                 return monthLength;
             }
         }
-    
+
         let getStartDay = (preMonth, weekDay) => {
             let preMonthLength = judgeLength(preMonth);
             console.log(preMonthLength);
             if (weekDay === 0) weekDay = 7;
+            //算出当前日历开始的日期
             let startDay = preMonthLength - weekDay + 2;
             // 用于校验日历当前的开始时间是否为周一
             let startDayDate = new Date(year, month - 1, startDay);
@@ -57,38 +62,37 @@ $(function () {
                 return error;
             }
         }
-    
-        let MonStartDay = getStartDay(month - 1, weekDay);
-        console.log(MonStartDay);
+
         let tr = document.querySelectorAll('tr');
-        let cellDay = MonStartDay;
-        console.log(tr);
+        // 当前日历开始的日期
+        let cellDay = getStartDay(month - 1, weekDay);
+        console.log(tr, cellDay);
         let creatMonHtml = (cellDay, month) => {
             let currentTr, td, judgeMon = false;
             for (let i = 1; i <= 6; i++) {
                 currentTr = tr[i];
                 currentTr.innerHTML = "";
-    
+
                 for (let j = 0; j <= 6; j++) {
                     td = $("<td></td>").text(cellDay);
                     $(currentTr).append(td);
                     cellDay++;
-    
+
                     // 判断是否为上个月的结尾
-                    if ( (cellDay > judgeLength(month - 1)) && (!judgeMon)) {
+                    if ((cellDay > judgeLength(month - 1)) && (!judgeMon)) {
                         cellDay = 1;
                         judgeMon = true;
-                    }else if( (cellDay > judgeLength(month)) && judgeMon ){
+                    } else if ((cellDay > judgeLength(month)) && judgeMon) {
                         cellDay = 1;
                     }
-    
+
                 }
             }
-    
+
         }
         creatMonHtml(cellDay, month);
     }
-   
-    changeCalendar( selectYear, selectMonth);
+
+    changeCalendar(selectYear, selectMonth);
 
 })
