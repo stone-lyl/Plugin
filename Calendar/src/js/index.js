@@ -15,7 +15,6 @@ $(function () {
     // 标记今天
     let date = new Date();
 
-
     // 判断改变选择的对象是年还是月
     $("article").on("change", "#month, #year", function (event) {
         const value = this.value;
@@ -75,7 +74,7 @@ $(function () {
             this.year = year;
         }
 
-        //点击获得当天的年月日 someday();
+        //todo: 点击获得当天的年月日 someday();
 
 
         // 获取一个月日历中开始的日期
@@ -99,36 +98,41 @@ $(function () {
         // 当前日历开始的日期
         let cellDate = getStartDay(month - 1, weekDay);
         console.log(tr, cellDate);
-        let creatMonHtml = (cellDate, month) => {
-            let currentTr, td, cellDay = cellDate.day;
-            let cellMon = cellDate.month;
-            console.log("month", month, cellMon);
+        let creatMonHtml = (cellDate, month, year) => {
+            let currentTr, td;
+            console.log("month", month, cellDate.month);
             for (let i = 1; i <= 6; i++) {
                 currentTr = tr[i];
                 currentTr.innerHTML = "";
 
                 for (let j = 0; j <= 6; j++) {
-                    td = $("<td></td>").text(cellDay);
+                    td = $("<td></td>").text(cellDate.day);
 
                     //标记今天
-                    if ((cellDay === day) && (cellMon === month)) {
-                        td.css("background-color", "white");
+                    let signToday = (cellDate) =>{
+                        let date = new Date();
+                        if ((cellDate.day == date.getDate()) && (cellDate.month == date.getMonth()) && (cellDate.year == date.getFullYear())) {
+                            td.css("background-color", "white");
+                        }
                     }
+                    signToday(cellDate);
                     $(currentTr).append(td);
-                    cellDay++;
+                    cellDate.day++;
                     // 判断是否为上个月的结尾
-                    if ((cellDay > judgeLength(month - 1)) && (cellMon === month - 1)) {
-                        cellDay = 1;
-                        cellMon = month;
-                    } else if ((cellDay > judgeLength(month)) && (cellMon === month)) {
-                        cellDay = 1;
+                    if ((cellDate.day > judgeLength(month - 1)) && (cellDate.month === month - 1)) {
+                        cellDate.day = 1;
+                        cellDate.month = month;
+                    } else if ((cellDate.day > judgeLength(month)) && (cellDate.month === month)) {
+                        cellDate.day = 1;
+                        cellDate.month = month + 1;
+                        console.log("for", cellDate);
                     }
 
                 }
             }
 
         }
-        creatMonHtml(cellDate, month);
+        creatMonHtml(cellDate, month, year);
     }
 
     changeCalendar(selectYear, selectMonth);
