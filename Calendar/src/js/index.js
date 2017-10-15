@@ -75,7 +75,12 @@ $(function () {
         }
 
         //todo: 点击获得当天的年月日 someday();
-
+        $("table").on("click", "td", function (event) {
+            console.log(event.target);
+            let dateTd = $(event.target).attr("date").split(",");
+            console.log(dateTd, "attr");
+            
+        })
 
         // 获取一个月日历中开始的日期
         let getStartDay = (preMonth, weekDay) => {
@@ -106,8 +111,9 @@ $(function () {
                 currentTr.innerHTML = "";
 
                 for (let j = 0; j <= 6; j++) {
-                    td = $("<td></td>").text(cellDate.day);
-
+                    //可以获得动态生成的attr，good
+                    td = $("<td></td>").attr("date",[cellDate.day,cellDate.month,cellDate.year]).text(cellDate.day);
+                    // console.log($($("td")[1]).attr("date"), "attr");
                     //标记今天
                     let signToday = (cellDate) =>{
                         let date = new Date();
