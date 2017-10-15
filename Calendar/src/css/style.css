@@ -32,6 +32,9 @@ td, th{
     height: 20px;
     cursor: pointer;
 }
+td:hover{
+    color: white;
+}
 #year {
     
 }
