@@ -35,3 +35,18 @@ td, th{
 #year {
     
 }
+section{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 300px;
+}
+section>div{
+    flex: 1 0 auto;
+}
+.radio{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: red;
+    display: inline-block;
+}

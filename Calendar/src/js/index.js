@@ -74,14 +74,6 @@ $(function () {
             this.year = year;
         }
 
-        //todo: 点击获得当天的年月日 someday();
-        $("table").on("click", "td", function (event) {
-            console.log(event.target);
-            let dateTd = $(event.target).attr("date").split(",");
-            console.log(dateTd, "attr");
-            
-        })
-
         // 获取一个月日历中开始的日期
         let getStartDay = (preMonth, weekDay) => {
             let preMonthLength = judgeLength(preMonth);
@@ -112,10 +104,10 @@ $(function () {
 
                 for (let j = 0; j <= 6; j++) {
                     //可以获得动态生成的attr，good
-                    td = $("<td></td>").attr("date",[cellDate.day,cellDate.month,cellDate.year]).text(cellDate.day);
+                    td = $("<td></td>").attr("date", [cellDate.day, cellDate.month, cellDate.year]).text(cellDate.day);
                     // console.log($($("td")[1]).attr("date"), "attr");
                     //标记今天
-                    let signToday = (cellDate) =>{
+                    let signToday = (cellDate) => {
                         let date = new Date();
                         if ((cellDate.day == date.getDate()) && (cellDate.month == date.getMonth()) && (cellDate.year == date.getFullYear())) {
                             td.css("background-color", "white");
@@ -140,6 +132,37 @@ $(function () {
         }
         creatMonHtml(cellDate, month, year);
     }
+
+    //todo: 点击获得当天的年月日 someday();
+    let dateTd;        
+    $("table").on("click", "td", function (event) {
+        console.log(event.target);
+        dateTd = $(event.target).attr("date").split(",");
+        console.log(dateTd, "attr");
+        let info = JSON.parse(localStorage.getItem(dateTd));
+        console.log(info);
+        if(info === null || info === "" ){
+            document.getElementById("start").checked = false;
+            document.getElementById("end").checked = false;
+            $("#weight").val("");
+        }else{
+            document.getElementById("start").checked = info.start;
+            document.getElementById("end").checked = info.end;
+            $("#weight").val(info.weight);
+        }
+    })
+
+    // 点击保存可以存储数据
+    $("#save").on("click", function () {
+        let info = {}
+        info.start = document.getElementById("start").checked;
+        info.end = document.getElementById("end").checked;
+        info.weight = $("#weight").val();
+        console.log(info);
+        console.log(dateTd, "attr");
+
+        localStorage.setItem(dateTd, JSON.stringify(info));
+    })
 
     changeCalendar(selectYear, selectMonth);
 

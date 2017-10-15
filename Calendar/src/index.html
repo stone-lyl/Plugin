@@ -76,8 +76,35 @@
                 </tr>
             </table>
         </article>
-        <section> info </section>
-        <footer> do somethings </footer>
+        <section>
+            <div>
+                <span class="radio"></span>
+                <span>经期</span>
+            </div>
+            <div>
+                <span class="radio"></span>
+                <span>经期</span>
+            </div>
+            <div>
+                <span class="radio"></span>
+                <span>经期</span>
+            </div>
+        </section>
+        <footer>
+            <div>
+                <label>经期开始</label>
+                <input type="checkbox" value="start" id="start" checked/>
+            </div>
+            <div>
+                <label>经期结束</label>
+                <input type="checkbox" value="end" id="end"/>
+            </div>
+            <div>
+                <label>体重</label>
+                <input type="text" id="weight">kg
+            </div>
+            <button id="save">save</button>
+        </footer>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="./js/index.js"></script>
