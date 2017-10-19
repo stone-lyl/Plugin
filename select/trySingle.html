@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./trySingle.css" />
+    <title>single bind</title>
+</head>
+
+<body>
+    <input type="text" id="input" class="input inputMailList" name="email" placeholder="可选择可选择" required autofocus autocomplete="off"
+    />
+    <i class="icon-caret-down" id="iconCaretDown"></i>
+    <ul id="ul">
+        <!-- <li>new</li> -->
+        <!-- <li>新东方</li>
+        <li>新华三</li>
+        <li>华为</li>
+        <li>海康</li>
+        <li>中兴</li>
+        <li>有赞新</li> -->
+    </ul>
+    <script>
+        let obj = {}, inputValue = "", indexInput;
+
+        const input = document.getElementById('input');
+        const ul = document.getElementById("ul");
+        const i = document.getElementById('iconCaretDown');
+        const arrCompony = ['安恒', '恒久', ' 新华三', '新东方', '华为', '海康', '中兴', '有赞新'];
+        const key = {
+            "up": 38,
+            "down": 40,
+            "enter": 13
+        };
+
+        i.onclick = function (e) {
+            let event = e || window.event;
+            let target = event.target || event.srcElement;
+            event.stopPropagation();
+            ul.innerHTML = "";
+            arrCompony.forEach(function (element) {
+                ul.innerHTML += "<li>" + element + "</li>";
+            }, this);
+        }
+        input.onkeyup = () => {
+            inputValue = input.value;
+            console.log('inputValue', inputValue);
+            //每次新的键入清空内容，便于填入。
+            ul.innerHTML = "";
+            arrCompony.forEach(function (element) {
+                indexInput = element.indexOf(inputValue);
+                console.log(indexInput, element);
+                if ((indexInput !== -1) && (inputValue !== "")) {
+                    ul.innerHTML += "<li>" + element + "</li>";
+                }
+            }, this);
+        }
+        ul.onclick = function (e) {
+            let event = e || window.event;
+            let target = event.target || event.srcElement;
+            event.stopPropagation();
+
+            if (target.tagName.toLowerCase() == 'li') {
+                console.log(target.innerHTML);
+                input.value = target.innerHTML;
+                ul.innerHTML = "";
+            }
+        };
+
+        document.body.addEventListener('click', function () {
+            ul.innerHTML = "";
+        }, false);
+        obj.input = "";
+    </script>
+</body>
+
+</html>
