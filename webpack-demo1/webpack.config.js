@@ -11,6 +11,28 @@ module.exports = {
         filename: 'js/[name]-[chunkhash].js', // 打包后输出文件的文件名
     },
     module: {
+        loaders: [
+            {
+                test: /\.less$/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true, // 指定启用css modules
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [require('autoprefixer')],  // 为css在不同浏览器中添加前缀
+                            browser: ['last 5 versions']        // 浏览器最新的五个版本。
+                        }
+                    },
+                    {   loader: 'less-loader'   },
+                ]
+            },
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
