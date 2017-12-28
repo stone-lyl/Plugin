@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
     entry: path.resolve(__dirname, 'app/main.js'), // 唯一入口文件
     output: {
@@ -15,11 +14,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'index.html'), // new 这个插件实例，并传入相关的参数
-            filename: path.resolve(__dirname, 'build/index.html'),
-            inject: 'body'
+            template: path.join(__dirname, 'index.html'),      // 被编译的HTML文件路径 
+            filename: path.resolve(__dirname, 'build/index.html'),  // 编译后的HTML文件存放路径
+            inject: 'body',      // 编译后的js被插入HTML的body中。
+            title: 'webpack is great!' //可以通过模板引入HTML文件中。
         }),
-
-
     ],
 };
