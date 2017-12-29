@@ -3,7 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, 'app/main.js'), // 唯一入口文件
@@ -68,11 +67,6 @@ module.exports = {
         ]
     },
     plugins: [
-        // new CleanWebpackPlugin('build/js/*.*', {
-        //     root: __dirname,
-        //     verbose: true,
-        //     dry: false,
-        // }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.html'),      // 被编译的HTML文件路径 
             filename: path.resolve(__dirname, 'build/index.html'),  // 编译后的HTML文件存放路径
