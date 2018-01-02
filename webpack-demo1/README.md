@@ -1,13 +1,21 @@
 ### 目录
 
 [关于此文](#关于此文)
+
 [在学习webpack之前，我们先去了解它的作用](#在学习webpack之前我们先去了解它的作用)
+
 [它与其他其他前端工具（gulp，grunt）有什么差别呢](#它与其他其他前端工具gulpgrunt有什么差别呢)
+
 [安装](#安装)
-[webpack.config.js 配置结果](#webpack.config.js-配置结果)
+
+[webpack.config.js 配置结果](#webpackconfigjs-配置结果)
+
 [webpack 开始简单配置](#webpack-开始简单配置)
+
 [文件结构](#文件结构)
+
 [demo地址](#demo地址)
+
 [参考连接](#参考连接)
 
 ----
@@ -238,24 +246,31 @@ webpack --config webpack.config.js --progress --colors
 如果报错 无法识别webpack 请全局安装webpack。
 运行后我们控制台表现为：
 ![图片.png-28kB][6]
-1.  
-asset: 打包生成的文件 
-size:文件大小 
-Chunks:打包的分块 
-Chunk Names:打包的块名称。
-2.  
-打包成功的各个模块。
 
-然后我们发现 build 文件夹新增了几个文件。
-![图片.png-5.2kB][7]
+1.  asset: 打包生成的文件 
+    size:文件大小 
+    Chunks:打包的分块 
+    Chunk Names:打包的块名称。
+
+2.  打包成功的各个模块。
+    然后我们发现 build 文件夹新增了几个文件。
+
+    ![图片.png-5.2kB][7]
+
 我们打开其中index.html 会发现js已经被插入其中了。
+
 ![图片.png-8.1kB][8]
+
 点击build中的index.html 我们会发现页面已经发生了改变。
+
 ![图片.png-0.7kB][9]
+
 我们文件插入成功了！
 
 最后，在`package.json`中配置运行方式。
+
 ![图片.png-7.3kB][10]
+
 以后我们只需要在控制台输入：`npm run webpack`即可。
 
 #### css/less/sass 的处理
@@ -419,7 +434,7 @@ babel转换：
 ### demo地址
 点击跳转： <a href="https://github.com/stone-lyl/Plugin/tree/master/webpack-demo1"> webpack-demo1 </a>
 
-###参考连接
+### 参考连接
 https://webpack.js.org
 https://www.zhihu.com/question/37020798/answer/71621266
 https://www.imooc.com/learn/802
