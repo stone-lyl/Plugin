@@ -36,6 +36,7 @@ npm i -D webpack
 ```
 
 ### webpack.config.js 配置结果
+
 ```
 // __dirname 是node.js一个全局变量，指向当前执行的脚本所在文件目录。
 const webpack = require('webpack');
@@ -116,11 +117,15 @@ module.exports = {
 };
 
 ```
+
 上面是我们常见的webpack文件，这里我们先通过 entry, output, loader(上面代码中的module模块), plugins对webpack进行讲解。
+
 **entry**: 入口文件，告诉webpack文件入口在哪里。可用三种方式表示，字符串，数组，对象。 
+
 ```
 entry: path.resolve(__dirname, '/app/main.js'), // 唯一入口文件
 ```
+
 **output**: 只能有一个配置文件。需要两个基本的配置： a filename, path
 ```
 output: {
@@ -202,7 +207,9 @@ module.exports = {
 ```
 
 我们可以看到，我们并没有在index.html 中插入js。所以打开index.html效果如下：
+
 ![图片.png-1.8kB][5]
+
 现在我要达到js可以自动插入html的效果。
 
 ####在webpack中配置html文件
@@ -349,7 +356,9 @@ babel转换：
             }
         ]
 ```
+
 然后打开build中的index文件：
+
 ![图片.png-9.8kB][12]
 
 #### 自动刷新+ 模块热加载
@@ -366,16 +375,21 @@ babel转换：
 ```
 3.  在plugins中添加一个配置项，热模块替换(Hot Module Replacement)只替换更新的部分,而不是页面重载。
 它是webapck 自带的内容，所以不需要安装：`new webpack.HotModuleReplacementPlugin()`
+
 4.  最后我们需要在scripts中添加配置项：　
 ![图片.png-8.7kB][13]
+
 然后我们在控制台输入　npm run server 时，就可以在本地起一个服务了，效果如下：
 ![图片.png-6.4kB][14]
+
 如果不想每次启服务的时候打开页面可以修改scripts为：
 `"server": "webpack-dev-server --config webpack.config.js"`
 
 ### 文件结构
 **目录结构**：
+
 ![图片.png-18.4kB][15]
+
 **package.json**:
 
 ```
