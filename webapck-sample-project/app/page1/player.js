@@ -10,6 +10,7 @@ const Player = (props) => {
         return (
             <div>
                 <h3> i don't know it! </h3>
+                <p> haha, this is {num} son</p>
                 <Link to="/page1"> Back </Link>
             </div>
         );
