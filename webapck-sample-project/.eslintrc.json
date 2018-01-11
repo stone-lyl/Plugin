@@ -1,5 +1,5 @@
 {
-    "parser": "babel-eslint",    
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "node": true,
@@ -7,13 +7,13 @@
         "mocha": true
     },
     "parserOptions": {
-        "ecmaVersion": 6, // 指定为es6版本
+        "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
     },
-    "rules": { 
+    "rules": {
         "eqeqeq": "off",
         "curly": "error"
     },
