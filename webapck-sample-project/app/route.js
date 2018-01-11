@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import Greeter from "./greeter";
-import Page1 from './page1';
-import Home from './home';
-
+import Greeter from "./page/greeter";
+import Page1 from './page/page1';
+import Home from './page/home';
+import NotFound from './page/notfound';
 const App = () => {
     return (
     <div>
@@ -22,6 +22,7 @@ const App = () => {
             <Route path="/page1" component={Page1} />
             <Route path="/greeter" component={Greeter} />
             <Route path="/page2" render={() => <h2>Page2</h2>} />
+            <Route component={NotFound}/>
         </Switch>
 
     </div>
