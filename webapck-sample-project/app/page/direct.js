@@ -31,7 +31,6 @@ const Links = () => (
     </div>
 )
 
-const logined = true;
 const Direct = () => (
     <BrowserRouter>
         <div>

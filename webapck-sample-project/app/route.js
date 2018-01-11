@@ -20,7 +20,7 @@ const App = () => {
                 {/* redirect 重定向 */}
                 <li><Link to="direct"> Redirect</Link></li>
                 {/* 身份验证路由 */}
-                <li><Link to="/protected">Protected</Link></li>
+                <li><Link to="/login">Protected</Link></li>
             </ul>
         </nav>
 
@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/greeter" component={Greeter} />
             <Route path="/page2" render={() => <h2>Page2</h2>} />
             <Route path="/direct" component={Direct} />
-            <Route path="/protected" component={Protected} />
+            <Route path="/login" component={Protected} />
             <Route component={NotFound}/>
         </Switch>
 
