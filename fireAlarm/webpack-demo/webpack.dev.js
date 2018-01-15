@@ -1,4 +1,6 @@
 const merge = require('webpack-merge');
+const webpack = require('webpack');
+
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -10,4 +12,7 @@ module.exports = merge(common, {
         port: 3030,
         hot: true
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(), // 加热插件        
+    ]
 })

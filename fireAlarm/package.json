@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "server": "webpack-dev-server --config ./webpack.config.js",
+    "start": "webpack-dev-server --open --config ./webpack-demo/webpack.dev.js",
+    "server": "webpack-dev-server --config ./webpack-demo/webpack.config.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint --ext .js src"
   },
