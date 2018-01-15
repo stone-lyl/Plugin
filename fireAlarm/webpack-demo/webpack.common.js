@@ -16,9 +16,42 @@ module.exports = {
     module: {
         rules: [
             {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "eslint-loader",
+                    options: {
+                        cache: true,
+                        formatter: eslintfriendlyformatter,
+                        fix: true
+                    }
+                }
+            },
+            {
                 test: /(\.jsx|\.js)$/,
                 use: { loader: "babel-loader" },
                 exclude: /node_modules/
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true, // 指定启用css modules
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [require('autoprefixer')],  // 为css在不同浏览器中添加前缀
+                            browser: ['last 5 versions']        // 浏览器最新的五个版本。
+                        }
+                    },
+                    { loader: 'less-loader' },
+                ]
             },
             {
                 test: /\.css$/,
