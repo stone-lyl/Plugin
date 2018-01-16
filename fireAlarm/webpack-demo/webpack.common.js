@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const eslintfriendlyformatter = require("eslint-friendly-formatter");
+
 // common: html加载js，clean，entry，output
 module.exports = {
     entry: __dirname + "/../app/main.js", // 唯一入口文件
@@ -69,8 +71,22 @@ module.exports = {
                             plugins: [require('autoprefixer')],
                             browser: ['last 5 versions']
                         }
-                    }
-                    /* css-loader end */
+                    },
+                ]
+            },
+            /* css-loader end */
+            {
+                test: /\.(png|jpg|git|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path]-[name].[ext]',
+                        },
+                    },
+                    {
+                        loader: 'image-webpack-loader'
+                    },
                 ]
             }
         ]

@@ -49,6 +49,7 @@ export default class Greeter extends React.Component {
             <div className={styles.root}>
                 {config.greetText}
                 <h3>3</h3>
+                <img src="../image/app" alt="png" />
                 <h2> {this.state.number} </h2>
                 <p className={styles.p}>{new Date().toTimeString()}</p>
             </div>
