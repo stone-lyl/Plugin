@@ -1,0 +1,12 @@
+.login-contain {
+    background-color: aqua;
+    background-image: url('../image/GreatFountainGeyer_ZH-CN11320043560_1920x1080.jpg');
+    
+    width: 100%;
+}
+
+.login-main {
+    height: 200px;
+    width: 200px;
+    background-color: beige;
+}
