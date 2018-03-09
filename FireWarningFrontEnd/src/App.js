@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Button } from 'antd';
 import Login from './login/login';
+import 'normalize.css'
 import './App.css';
 
 class App extends Component {
