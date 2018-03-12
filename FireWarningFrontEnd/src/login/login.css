@@ -38,7 +38,7 @@ html, body {
 }
 .login-message {
     width: 320px;
-    height: 60px;
+    height: 90px;
 }
 .login-info {
     padding: 10px;
@@ -63,6 +63,10 @@ html, body {
     /* width: 0; */
     padding: 0;
     margin: 0;
+}
+.login-firemen {
+    width: 60px;
+    height: 80px;
 }
 .login-main {
     /* 设置图片水平垂直居中 */

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Button, Radio, Row, Col } from 'antd'
 import './login.css'
-import logo from './../image/安全盾牌1.png';
+import logo from './../image/378.png';
 const { Content } = Layout;
 class Login extends Component {
     render() {
@@ -13,7 +13,7 @@ class Login extends Component {
                         <div className="login-message">
                             <p className="login-info">this is a login page  </p>
                             <div className="login-triangle"></div>
-                            <img src={logo} alt={"logo"}/>
+                            <img src={logo} alt={"logo"} className="login-firemen"/>
                         </div>
 
                      
