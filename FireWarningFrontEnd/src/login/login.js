@@ -10,9 +10,13 @@ class Login extends Component {
                 <Layout>
                     <Content className="login-contain" >
                         <div className="login-title"> Fire Warning System</div>
-                        <div className="login-info" >
-                            <p>this is a login page <img src={logo} alt={"logo"}/> </p>
+                        <div className="login-message">
+                            <p className="login-info">this is a login page  </p>
+                            <div className="login-triangle"></div>
+                            <img src={logo} alt={"logo"}/>
                         </div>
+
+                     
                         <div className="login-main">
                             
                             <form className="login-form">

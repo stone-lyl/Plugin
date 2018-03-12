@@ -24,6 +24,8 @@ html, body {
 @media only screen and (max-width : 767px) {
     .login-contain {
         background-image: url('../image/StormySeas_ZH-CN9261044607_1920x1080.jpg');
+        /* filter: blur(1px); 待玩*/
+        /* z-index: -1; */
     }
 }
 .login-title {
@@ -34,17 +36,33 @@ html, body {
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.login-info {
-    height: 60px;
+.login-message {
     width: 320px;
+    height: 60px;
+}
+.login-info {
+    padding: 10px;
     font-size: 24px;
     line-height: 1.5;
-    border-radius: 5px;
+    border-radius: 5px 0 5px 5px;
     background-color: #7298B8;
     opacity: 0.5;
-
+    display: inline;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 20px 0;
+}
+.login-triangle {
+    border-color: #7298B8 transparent transparent transparent;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    opacity: 0.5;
+    position: relative;
+    border-radius: 0 3px 0 0;
+    top: 2px;
+    display: inline;
+    /* width: 0; */
+    padding: 0;
+    margin: 0;
 }
 .login-main {
     /* 设置图片水平垂直居中 */
