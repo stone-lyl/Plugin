@@ -18,12 +18,11 @@ class Login extends Component {
 
                      
                         <div className="login-main">
-                            
                             <form className="login-form">
-                                <label for="username">Username：</label>
+                                <label htmlFor="username">Username：</label>
                                 <input type="text" name="username" id="username" className="login-input" height="20px" width="20px"/>
                                 <br />
-                                <label for="password">Password:</label>
+                                <label htmlFor="password">Password:</label>
                                 <input type="password" name="password" id="password" className="login-input"/>
                                 <input type="submit" name="submit" value="log in" className="login-submit"/>
                             </form>
