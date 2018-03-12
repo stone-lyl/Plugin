@@ -2,6 +2,7 @@ html, body {
     height: 100%;
 }
 .login-contain {
+    /* 图片铺满整屏 */
     background-color: #464646;
     background-image: url('../image/GreatFountainGeyer_ZH-CN11320043560_1920x1080.jpg');
     background-size: cover;
@@ -11,6 +12,13 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    color: #fff;
+
+    /* 设置图片水平垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 
 }
 @media only screen and (max-width : 767px) {
@@ -18,10 +26,63 @@ html, body {
         background-image: url('../image/StormySeas_ZH-CN9261044607_1920x1080.jpg');
     }
 }
+.login-title {
+    height: 60px;
+    color: #9CBBD6;
 
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.login-info {
+    height: 60px;
+    width: 320px;
+    font-size: 24px;
+    line-height: 1.5;
+    border-radius: 5px;
+    background-color: #7298B8;
+    opacity: 0.5;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 20px 0;
+}
 .login-main {
-    height: 400px;
-    width: 700px;
-    background-color: yellow;
+    /* 设置图片水平垂直居中 */
+    justify-content: center;
+    align-items: center;
 
+    height: 220px;
+    width: 320px;
+    background-color: #7298B8;
+    opacity: 0.5;
+    border-radius: 3px;
+}
+
+.login-form {
+    padding-top: 20px;
+    color: #fff;
+    /* text-align: left; */
+    margin: center auto;
+    
+}
+.login-input {
+    width: 260px;
+    margin: 10px 20px; 
+    padding: 5px 20px;
+    height: 30px;
+    line-height: 1.5;
+    border-radius: 5px;
+    background-color: rgb(18, 86, 141);
+    color: #ffffff;
+    border: none;
+    box-sizing: border-box;
+}
+
+.login-submit {
+    background-color: #405269;
+    border-radius: 3px; 
+    border: none;
+    padding: 5px 10px;
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }

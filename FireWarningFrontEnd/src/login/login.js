@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Layout, Form, Input, Button, Radio, Row, Col } from 'antd'
+import { Layout, Button, Radio, Row, Col } from 'antd'
 import './login.css'
-
-const FormItem = Form.Item;
+import logo from './../image/安全盾牌1.png';
 const { Content } = Layout;
 class Login extends Component {
     render() {
@@ -10,24 +9,21 @@ class Login extends Component {
             <div>
                 <Layout>
                     <Content className="login-contain" >
+                        <div className="login-title"> Fire Warning System</div>
+                        <div className="login-info" >
+                            <p>this is a login page <img src={logo} alt={"logo"}/> </p>
+                        </div>
                         <div className="login-main">
-                             <p>this is a login page</p>
-                            <Form>
-                                <FormItem label="Username" >
-                                    <Input placeholder="Username" />
-                                </FormItem>
-                                <FormItem label="Password" type="password" >
-                                    <Input placeholder="Password" />
-                                </FormItem>
-                                <FormItem>
-                                    <Button
-                                        type="primary"
-                                        htmlType="submit"
-                                    >
-                                        Log in
-                            </Button>
-                                </FormItem>
-                            </Form>
+                            
+                            <form className="login-form">
+                                <label for="username">Username：</label>
+                                <input type="text" name="username" id="username" className="login-input" height="20px" width="20px"/>
+                                <br />
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="password" className="login-input"/>
+                                <input type="submit" name="submit" value="log in" className="login-submit"/>
+                            </form>
+
                         </div>
                     </Content>
 
