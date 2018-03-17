@@ -4,7 +4,7 @@ const uglify = require('gulp-uglify');
 const watchPath = require('gulp-watch-path');
 const minifycss = require('gulp-minify-css');
 const imagemin = require('gulp-imagemin');
-const sass = require('gulp-sass');
+// const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 
